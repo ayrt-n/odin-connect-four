@@ -13,6 +13,7 @@ describe ConnectFourGame do
   describe '#play' do
     before do
       allow(game).to receive(:intro_message)
+      allow(board).to receive(:print_board)
       allow(game).to receive(:end_message)
       allow(game).to receive(:prompt_player_move).and_return('')
       allow(board).to receive(:place_player_marker)

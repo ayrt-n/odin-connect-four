@@ -13,7 +13,7 @@ class ConnectFourGame
   def play
     intro_message
     until board.full_board?
-      # board.print_board
+      board.print_board
       puts "#{current_player.name}! It's your turn! Select the column you would like to place your marker..."
       move = prompt_player_move
       board.place_player_marker(move, current_player.marker)

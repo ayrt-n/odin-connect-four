@@ -29,10 +29,10 @@ class GameBoard
   end
 
   def col_full?(col)
-    column = [grid[0][col], 
-              grid[1][col], 
-              grid[2][col], 
-              grid[3][col], 
+    column = [grid[0][col],
+              grid[1][col],
+              grid[2][col],
+              grid[3][col],
               grid[4][col],
               grid[5][col]]
     !column.include?('')
@@ -42,7 +42,7 @@ class GameBoard
     puts ''
     puts '  1  2  3  4  5  6  7 '
     grid.each do |row|
-      print ' '
+      print '|'
       row.each do |element|
         if element.empty?
           print '   '
@@ -50,7 +50,7 @@ class GameBoard
           print " #{element} "
         end
       end
-      puts ' '
+      puts '|'
     end
     puts ''
   end
