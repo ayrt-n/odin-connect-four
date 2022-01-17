@@ -13,7 +13,7 @@ class ConnectFourGame
   def play
     intro_message
     until board.full_board?
-      board.print_board
+      # board.print_board
       puts "#{current_player.name}! It's your turn! Select the column you would like to place your marker..."
       move = prompt_player_move
       board.place_player_marker(move, current_player.marker)
@@ -55,13 +55,13 @@ class ConnectFourGame
   def prompt_player_move
     loop do
       input = gets.chomp
-      return input.to_i if valid_move?(input)
+      return (input.to_i - 1) if valid_move?(input) # Subtract 1 from input to match array indices
 
-      puts 'Invalid move - Please select a number 0-6 in column which is not full'
+      puts 'Invalid move - Please select a number 1-7 in column which is not full'
     end
   end
 
   def valid_move?(col)
-    !!(col.match(/^\b[0-6]\b/) && !board.col_full?(col.to_i))
+    !!(col.match(/^\b[1-7]\b/) && !board.col_full?(col.to_i - 1))
   end
 end

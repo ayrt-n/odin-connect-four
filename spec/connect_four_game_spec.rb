@@ -76,22 +76,22 @@ describe ConnectFourGame do
   describe '#prompt_player_move' do
     context 'when provided valid move' do
       it 'sends valid_move? with player response to ConnectFourGame' do
-        allow(game).to receive(:gets).and_return('0')
+        allow(game).to receive(:gets).and_return('1')
         allow(game).to receive(:valid_move?).and_return(true)
-        expect(game).to receive(:valid_move?).with('0')
+        expect(game).to receive(:valid_move?).with('1')
         game.send(:prompt_player_move)
       end
 
       it 'stops loop and does not display error message' do
         allow(game).to receive(:gets).and_return('')
         allow(game).to receive(:valid_move?).and_return(true)
-        error_message = 'Invalid move - Please select a number 0-6 in column which is not full'
+        error_message = 'Invalid move - Please select a number 1-7 in column which is not full'
         expect(game).not_to receive(:puts).with(error_message)
         game.send(:prompt_player_move)
       end
 
       it 'returns player response as integer' do
-        allow(game).to receive(:gets).and_return('0')
+        allow(game).to receive(:gets).and_return('1')
         allow(game).to receive(:valid_move?).and_return(true)
         player_response = game.send(:prompt_player_move)
         expect(player_response).to eql(0)
@@ -100,9 +100,9 @@ describe ConnectFourGame do
 
     context 'when provided invalid move once and then valid move' do
       it 'displays error message once and then stops loop' do
-        allow(game).to receive(:gets).and_return('a', '0')
+        allow(game).to receive(:gets).and_return('a', '1')
         allow(game).to receive(:valid_move?).and_return(false, true)
-        error_message = 'Invalid move - Please select a number 0-6 in column which is not full'
+        error_message = 'Invalid move - Please select a number 1-7 in column which is not full'
         expect(game).to receive(:puts).with(error_message).once
         game.send(:prompt_player_move)
       end
@@ -113,14 +113,14 @@ describe ConnectFourGame do
     context 'when move is valid' do
       it 'returns true' do
         allow(board).to receive(:col_full?).and_return(false)
-        expect(game.send(:valid_move?, '0')).to eql(true)
+        expect(game.send(:valid_move?, '1')).to eql(true)
       end
     end
 
     context 'when move invalid because column is full' do
       it 'returns false' do
         allow(board).to receive(:col_full?).and_return(true)
-        expect(game.send(:valid_move?, '0')).to eql(false)
+        expect(game.send(:valid_move?, '1')).to eql(false)
       end
     end
 
