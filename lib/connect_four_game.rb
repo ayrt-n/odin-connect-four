@@ -32,7 +32,7 @@ class ConnectFourGame
 
       Welcome to Ruby Connect Four!
 
-      The goal of the game is to connect four of your tokens 
+      The goal of the game is to connect four of your tokens
       while preventing your opponent from doing the same.
       Players will take turns dropping tokens into the grid.
 
@@ -41,11 +41,13 @@ class ConnectFourGame
   end
 
   def end_message
+    puts ''
     if board.full_board?
       puts 'Draw game! There was no winner.'
     else
       puts "Congrats #{current_player.name}, you won!\nBetter luck next time, #{other_player.name}!"
     end
+    puts ''
   end
 
   def rotate_current_player

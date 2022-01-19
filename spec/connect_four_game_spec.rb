@@ -145,32 +145,4 @@ describe ConnectFourGame do
       expect(game.other_player).to equal(prev_current_player)
     end
   end
-
-  describe 'end_message' do
-    context 'when a player wins the game' do
-      before do
-        allow(game).to receive(:puts)
-        allow(board).to receive(:full_board?).and_return false
-      end
-
-      it 'returns winning message with the current players name' do
-        win_message = "Congrats p1, you won!\nBetter luck next time, p2!"
-        expect(game).to receive(:puts).with(win_message)
-        game.send(:end_message)
-      end
-    end
-
-    context 'when draw game' do
-      before do
-        allow(game).to receive(:puts)
-        allow(board).to receive(:full_board?).and_return true
-      end
-
-      it 'returns draw message' do
-        draw_message = 'Draw game! There was no winner.'
-        expect(game).to receive(:puts).with(draw_message)
-        game.send(:end_message)
-      end
-    end
-  end
 end

@@ -40,17 +40,16 @@ class GameBoard
 
   def print_board
     puts ''
-    puts '  1  2  3  4  5  6  7 '
+    puts ' 1  2  3  4  5  6  7 '
     grid.each do |row|
-      print '|'
       row.each do |element|
         if element.empty?
-          print '   '
+          print '[ ]'
         else
-          print " #{element} "
+          print "[#{element}]"
         end
       end
-      puts '|'
+      puts ''
     end
     puts ''
   end
