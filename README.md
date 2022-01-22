@@ -9,7 +9,7 @@ Project for The Odin Project (https://www.theodinproject.com/) to recreate the g
 The game can be run from the command line by simply running:
 
 ```
-$ ruby main.rb
+$ ruby lib/main.rb
 ```
 
 Further instructions provided within the command line.
